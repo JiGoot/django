@@ -9,7 +9,10 @@ venv/
 .DS_Store
 # 
 
-.etc/
+.etc/server.*
+# Ignore the credentials directory
+.etc/fcm/
+.vscode/*
 
 
 # pycache
