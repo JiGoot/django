@@ -1,0 +1,93 @@
+
+{% load static tz %}
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vérification de votre e-mail - JiGoot</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .container h1 {
+            font-size: 24px;
+            color: #4E555F;
+            margin-bottom: 20px;
+        }
+
+        .container p {
+            font-size: 16px;
+            color: #666666;
+            margin-bottom: 20px;
+        }
+
+        
+
+        /* To avoid hilighting the repeted email text from previous email in the same tread with apply a color the the text */
+
+        .container .btn {
+            display: inline-block;
+            background-color: #4E555F;
+            color: #ffffff;
+            padding: 12px 24px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+
+        .text-center .footer {
+            font-size: 14px;
+            color: #999999;
+        }
+        .text-center p a {
+            color: #4E555F;
+            text-decoration: underline;
+        }
+        #timestamp {
+            opacity: 0;
+        }
+    </style>
+</head>
+
+<body class="bg-light">
+
+    <div class="d-flex flex-column justify-content-center align-items-center min-vh-100 py-5">
+        <div class="container">
+            <!-- Main card content -->
+            <div class="row justify-content-center">
+                <div class="col-12 col-md-8 col-lg-6">
+                    <div class="bg-white p-4 p-md-5 rounded shadow-sm text-center">
+                        <img src="{% static 'images/logo.png' %}" alt="JiGoot Logo" class="mb-4"
+                            style="max-width: 100px;">
+
+                        <h1 class="h4 text-secondary mb-4">Mot de passe oublié?</h1>
+                        <p class="text-muted">Salut {{ user.name|title }},</p>
+                        <p class="text-muted">Nous avons reçu une demande de réinitialisation de votre mot de passe. Si c’est bien vous, cliquez sur le bouton ci-dessous :</p>
+
+                        <div class="my-4">
+                            <a href="{{ protocol }}://{{ domain }}{% url 'password_reset_confirm' uidb64=uid token=token %}"
+                                class="btn btn-dark px-4 py-2">Réinitialiser mon mot de passe</a>
+                        </div>
+
+                        <p class="text-muted">Si vous n'avez pas fait cette demande, ignorez simplement cet e-mail.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="text-center mt-5 px-3">
+            <p class="footer">Ce lien expirera dans les prochaines 24 heures.<br>
+                En cas de problème ? N'hésitez pas à nous contacter à l'adresse
+                <a href="mailto:info@jigoot.com">info@jigoot.com</a>.
+            </p>
+            <p class="footer">Copyright© {% now "Y" %} JiGoot.</p>
+        </div>
+
+        <!-- Hidden timestamp -->
+        <p id="timestamp">{% now "Y-m-d H:i:s" %}</p>
+    </div>
+
+</body>
+</html>

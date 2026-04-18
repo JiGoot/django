@@ -1,0 +1,20 @@
+# Environments
+# [.env] ignore any file or folder named ".env" within any directory in the repository
+# [/.env] ignore any file or folder ".env" in the root directory of the repository
+/.env
+venv/
+
+
+# Mac 
+.DS_Store
+# 
+
+.etc/
+
+
+# pycache
+*.pyc
+__pycache__
+
+**.db
+/*.json

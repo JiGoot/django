@@ -1,0 +1,28 @@
+{% extends "auth/base.html" %}
+{% load static hosts%}
+
+{% block content %}
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6 col-lg-5">
+      <div class="card-body text-center">
+        <img src="{% static 'images/logo.png' %}" alt="JiGoot Logo" class="img-fluid mb-3" style="max-height: 80px;">
+
+        <h3 class="card-title mb-3">
+          <i class="bi bi-check-circle-fill text-success me-2"></i>
+          Mot de passe réinitialisé
+        </h3>
+
+        <p class="mb-4">
+          Votre mot de passe a été réinitialisé avec succès. Vous pouvez maintenant vous connecter avec votre nouveau mot de passe.
+        </p>
+
+        <a href="{% host_url 'login' host 'merchant' %}" class="btn btn-primary">
+          <i class="bi bi-box-arrow-in-right me-1"></i>
+          Aller à la page de connexion
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

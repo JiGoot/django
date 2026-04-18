@@ -1,0 +1,48 @@
+{% extends 'merchant/base.html' %}
+
+{% block content %}
+<div class="container py-4">
+
+    {% include 'merchant/widgets/index/header.html' %}
+
+    <div class="row g-3 mb-4">
+        <div class="col-md-8">
+            {% include 'merchant/widgets/index/wallet.html' %}
+            {% include 'merchant/widgets/index/chart.html' %}
+        </div>
+        <div class="col-md-4">
+            {% include 'merchant/widgets/index/transactions.html' %}
+        </div>
+    </div>
+
+    {% include 'merchant/widgets/index/filters.html' %}
+    {% include 'merchant/widgets/index/consignments.html' %}
+
+</div>
+
+{% block extra_js %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    const earningsCtx = document.getElementById('earningsChart').getContext('2d');
+    new Chart(earningsCtx, {
+        type: 'bar',
+        data: {
+            labels: ['Mars', 'Avril', 'Mai'],
+            datasets: [{
+                label: 'Gains (CDF)',
+                data: [550, 430, 540],
+                backgroundColor: 'rgba(13, 110, 253, 0.5)',
+                borderColor: 'rgba(13, 110, 253, 1)',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+            scales: {
+                y: { beginAtZero: true }
+            }
+        }
+    });
+</script>
+{% endblock %}
+{% endblock content %}

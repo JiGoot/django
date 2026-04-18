@@ -1,0 +1,52 @@
+blurhash-python==1.1.3
+boto3==1.26.45 # for connecting to AWS S3 Bucket
+# celery==5.2.7
+channels==4.3.2
+crispy-bootstrap5==2025.4
+croniter==2.0.3 # use by [django-q2] cron type scheduling
+Django==5.2.13
+djangoql==0.17.1 # query search admin Extension
+djangorestframework==3.17.1
+django-collectionfield==0.0.4
+django-crispy-forms==2.4
+django-crontab==0.7.1
+django-hosts==6.0
+django-import-export==3.3.3 # csv import and export admin Extension
+django-jsonform==2.23.2
+django-model-utils==5.0.0
+django-mptt==0.17.0
+django-multiselectfield==0.1.12
+# django-polymorphic==3.1.0
+# git+https://github.com/Dlvnkenye/django-q2.git@master#egg=django-q2 # NOTE With fixed-BLPOP-timeout
+# django-q2==1.6.2 # this does also install the required redis python plugin 
+django-ratelimit==4.1.0 # Use it with Django
+django-redis==5.4.0
+djangorestframework-simplejwt==5.5.1
+# django-resized==1.0.2
+django-cors-headers==4.9.0
+django-simple-history==3.8.0
+django-storages==1.13.2 
+firebase-admin # push notifficatioon
+geopy==2.4.1
+gunicorn==20.1.0
+h3==4.3.1
+hashids==1.3.1
+# huey==2.5.3
+packaging==25.0
+paho-mqtt==2.1.0
+pika==1.3.2
+psycopg2-binary>=2.9.10
+# pulp==2.8.0 # For solver used in Dispatcher 
+python-dotenv==1.0.1
+redis==4.4.0
+shortuuid==1.0.13
+sqlmodel==0.0.24
+turfpy==0.0.7 # used por parsing geojson data
+twilio==8.8.0
+watchdog==6.0.0
+
+
+# ==============
+# django-silk==5.0.3  # only during development # DEV
+# sudo apt update && sudo apt install --reinstall systemd
+# sudo reboot

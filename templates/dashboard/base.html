@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://bootswatch.com/5/flatly/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row min-vh-100">
+          <!-- Sidebar -->
+          <nav class="col-md-3 col-lg-2 d-md-block bg-light sidebar py-3">
+            <ul class="nav flex-column">
+              <li class="nav-item">
+                <a class="nav-link active" href="{% url 'dashboard' %}">Dashboard</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="">Affiches</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="">Brands</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="">Common</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="">Merchant</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="">Stores</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="">Kitchens</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="">Customer</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="">Courier</a>
+              </li>
+              <!-- Add more menu items -->
+            </ul>
+          </nav>
+    
+          <!-- Main content -->
+          <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+            {% block content %}
+            <!-- Page-specific content goes here -->
+            {% endblock %}
+          </main>
+        </div>
+      </div>
+ 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+        crossorigin="anonymous"></script>
+    <!-- At end of body -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

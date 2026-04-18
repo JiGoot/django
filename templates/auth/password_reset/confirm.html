@@ -1,0 +1,50 @@
+{% extends "auth/base.html" %}
+{% load crispy_forms_tags static hosts%}
+
+{% block content %}
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6 col-lg-5">
+        <div class="card-body text-center">
+          <img src="{% static 'images/logo.png' %}" alt="JiGoot Logo" class="img-fluid mb-3" style="max-height: 80px;">
+
+          {% if validlink %}
+            <h3 class="card-title mb-3">
+              <i class="bi bi-lock-fill me-2"></i>
+              Définir un nouveau mot de passe
+            </h3>
+            <form method="post" novalidate autocomplete="off">
+              {% csrf_token %}
+              {{ form|crispy }}
+              <div class="d-grid gap-2">
+                <button type="submit" class="btn btn-primary">
+                  <i class="bi bi-key-fill me-1"></i>
+                  Réinitialiser le mot de passe
+                </button>
+              </div>
+            </form>
+          {% else %}
+            <h3 class="card-title mb-3">
+              <i class="bi bi-lock-fill me-2"></i>
+              Réinitialisation du mot de passe échouée
+            </h3>
+            <div class="alert alert-danger mt-3" role="alert">
+              Le lien de réinitialisation du mot de passe est invalide ou a expiré.
+            </div>
+            <a href="{% url 'password_reset' %}" class="btn btn-outline-primary mt-3">
+              <i class="bi bi-arrow-repeat me-1"></i>
+              Demander un nouveau lien
+            </a>
+          {% endif %}
+
+          <div class="text-center mt-4">
+            <a href="{% host_url 'login' host 'merchant' %}" class="text-decoration-none">
+              <i class="bi bi-arrow-left-circle me-1"></i>
+              Retour à la connexion
+            </a>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

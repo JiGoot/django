@@ -1,0 +1,105 @@
+{% load static tz %}
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demande de réinitialisation - JiGoot</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .container h1 {
+            font-size: 24px;
+            color: #4E555F;
+            margin-bottom: 20px;
+        }
+
+        .container p {
+            font-size: 16px;
+            color: #666666;
+            margin-bottom: 20px;
+        }
+
+        .otp-box {
+            font-size: 24px;
+            font-weight: bold;
+            color: #000;
+            background-color: #f2f2f2;
+            padding: 12px 24px;
+            border-radius: 6px;
+            display: inline-block;
+            letter-spacing: 4px;
+            margin-top: 10px;
+            margin-bottom: 20px;
+        }
+
+        .text-center .footer {
+            font-size: 14px;
+            color: #999999;
+        }
+
+        .text-center p a {
+            color: #4E555F;
+            text-decoration: underline;
+        }
+
+        #timestamp {
+            opacity: 0;
+        }
+    </style>
+</head>
+
+<body class="bg-light">
+
+    <div class="d-flex flex-column justify-content-center align-items-center min-vh-100 py-5">
+        <div class="container">
+            <!-- Main card content -->
+            <div class="row justify-content-center">
+                <div class="col-12 col-md-8 col-lg-6">
+                    <div class="bg-white p-4 p-md-5 rounded shadow-sm text-center">
+                        <img src="{% static 'images/logo.png' %}" alt="JiGoot Logo" class="mb-4" style="max-width: 100px;">
+
+                        <h1 class="h4 text-secondary mb-4">Demande de réinitialisation du mot de passe</h1>
+
+                        <p class="text-muted">
+                            Un gestionnaire a demandé une réinitialisation du mot de passe pour le magasin suivant :
+                        </p>
+
+                        <p class="text-muted">
+                            <strong>Magasin :</strong> {{ label }}<br>
+                            <strong>Code :</strong> {{ code }}<br>
+                            <strong>Ville :</strong> {{ city }}
+                        </p>
+
+                        <p class="text-muted">
+                            Si vous approuvez cette demande, transmettez le code OTP ci-dessous au gestionnaire :
+                        </p>
+
+                        <div class="otp-box">{{ otp }}</div>
+
+                        <p class="text-muted">
+                            Ce code est valable pendant 10 minutes.
+                        </p>
+
+                        <p class="text-muted">
+                            Si vous pensez que cette demande est suspecte ou non autorisée, veuillez l’ignorer et nous le signaler immédiatement.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="text-center mt-5 px-3">
+            <p class="footer">Pour toute assistance, contactez-nous à
+                <a href="mailto:info@jigoot.com">info@jigoot.com</a>.
+            </p>
+            <p class="footer">Copyright© {% now "Y" %} JiGoot.</p>
+        </div>
+
+        <!-- Hidden timestamp -->
+        <p id="timestamp">{% now "Y-m-d H:i:s" %}</p>
+    </div>
+
+</body>
+</html>
